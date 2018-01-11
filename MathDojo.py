@@ -4,7 +4,7 @@ class MathDojo( object ):
 
     def add( self, *args ):
         for item in args:
-            if isinstance( item, list ):
+            if isinstance( item, list ) or isinstance( item, tuple ):
                 self.result += sum (item)
             else:
                 self.result += item
@@ -12,7 +12,7 @@ class MathDojo( object ):
 
     def subtract( self, *args ):
         for item in args:
-            if isinstance( item, list ):
+            if isinstance( item, list ) or isinstance( item, tuple ):
                 self.result -= sum (item)
             else:
                 self.result -= item
@@ -22,4 +22,7 @@ md = MathDojo()
 
 # print md.add(2).add(2,5).subtract(3,2).result
 
-print md.add([1], 3,4).add([3,5,7,8], [2,4.3,1.25]).subtract(2, [2,3], [1.1,2.3]).result
+
+# print md.add([1],3,4).add([3,5,7,8], [2,4.3,1.25]).subtract(2, [2,3], [1.1,2.3]).result
+
+print md.add([1],(1,1),3,4).add([3,5,7,8], [2,4.3,1.25]).subtract(2,(1,1), [2,3], [1.1,2.3]).result
